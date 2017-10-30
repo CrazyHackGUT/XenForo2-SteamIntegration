@@ -1,0 +1,1 @@
+Your Steam Web API key. You can get one <a href="http://steamcommunity.com/dev" target="_blank" rel="noreferrer">here</a>.

@@ -1,0 +1,26 @@
+{
+    "option.nf_steam_key.txt": {
+        "global_cache": false,
+        "version_id": 2000070,
+        "version_string": "2.0.0",
+        "hash": "25d6ec3aa7c5109ef78426345635d723"
+    },
+    "option_explain.nf_steam_key.txt": {
+        "global_cache": false,
+        "version_id": 2000070,
+        "version_string": "2.0.0",
+        "hash": "627d514aedd3e5b3911ac8220ddf0c05"
+    },
+    "option_group.nf_steam.txt": {
+        "global_cache": false,
+        "version_id": 2000070,
+        "version_string": "2.0.0",
+        "hash": "7682a64d6e617e3268ec7d6f50d5b3dc"
+    },
+    "option_group_description.nf_steam.txt": {
+        "global_cache": false,
+        "version_id": 2000070,
+        "version_string": "2.0.0",
+        "hash": "99e15303fb88e97123929da74206888c"
+    }
+}
