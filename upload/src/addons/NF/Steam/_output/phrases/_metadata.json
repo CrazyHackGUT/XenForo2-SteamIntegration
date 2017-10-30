@@ -1,11 +1,11 @@
 {
-    "option.nf_steam_key.txt": {
+    "option.nfSteamApiKey.txt": {
         "global_cache": false,
         "version_id": 2000070,
         "version_string": "2.0.0",
         "hash": "25d6ec3aa7c5109ef78426345635d723"
     },
-    "option_explain.nf_steam_key.txt": {
+    "option_explain.nfSteamApiKey.txt": {
         "global_cache": false,
         "version_id": 2000070,
         "version_string": "2.0.0",
