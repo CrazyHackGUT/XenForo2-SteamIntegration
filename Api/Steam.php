@@ -1,6 +1,9 @@
 <?php
 namespace NF\Steam\Api;
 
+use GuzzleHttp\Exception\RequestException;
+use XF\App;
+
 class Steam
 {
     const BASE_URL = 'http://api.steampowered.com/';
@@ -10,7 +13,7 @@ class Steam
     protected $client;
     protected $key;
 
-    public function __construct(\XF\App $app)
+    public function __construct(App $app)
     {
         $this->app = $app;
         $this->key = $app->options()->nf_steam_key;
@@ -54,7 +57,7 @@ class Steam
             $data = $client->send($request);
             $data = trim($data->getBody()->getContents());
         }
-        catch (\GuzzleHttp\Exception\RequestException $e) { $this->app()->logException($e, false, 'SteamApi HTTP error: '); }
+        catch (RequestException $e) { $this->app()->logException($e, false, 'SteamApi HTTP error: '); }
         return $data;
     }
 
@@ -223,7 +226,7 @@ class Steam
     }
 
     /**
-     * @return \XF\App
+     * @return App
      */
     protected function app()
     {
