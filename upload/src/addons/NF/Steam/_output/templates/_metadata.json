@@ -1,0 +1,12 @@
+{
+    "admin/connected_account_provider_steam.html": {
+        "version_id": 2000070,
+        "version_string": "2.0.0",
+        "hash": "adad165e56fed431eefb4f33c9d6f55a"
+    },
+    "admin/connected_account_provider_test_steam.html": {
+        "version_id": 2000070,
+        "version_string": "2.0.0",
+        "hash": "4579efea7d17b0db71b17422466a8416"
+    }
+}

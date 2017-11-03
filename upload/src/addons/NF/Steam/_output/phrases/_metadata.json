@@ -1,4 +1,16 @@
 {
+    "nf_steam.txt": {
+        "global_cache": false,
+        "version_id": 2000070,
+        "version_string": "2.0.0",
+        "hash": "4db4563826bad0eb2f60ee6e42d0ea4b"
+    },
+    "nf_steam_description.txt": {
+        "global_cache": false,
+        "version_id": 2000070,
+        "version_string": "2.0.0",
+        "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
     "option.nfSteamApiKey.txt": {
         "global_cache": false,
         "version_id": 2000070,
