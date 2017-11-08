@@ -1,27 +1,30 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Zach
- * Date: 11/3/2017
- * Time: 10:17 AM
- */
 
 namespace NF\Steam\ConnectedAccount\Provider;
-
 
 use NF\Steam\SteamAuth;
 use OAuth\Common\Http\Uri\Uri;
 use XF\ConnectedAccount\Provider\AbstractProvider;
+use XF\ConnectedAccount\Storage\StorageState;
 use XF\Entity\ConnectedAccountProvider;
+use XF\Http\Request;
 use XF\Mvc\Controller;
 
 class Steam extends AbstractProvider
 {
     protected $auth;
+
     function __construct($providerId)
     {
         parent::__construct($providerId);
-        $this->auth = new SteamAuth(\XF::options()->nfSteamApiKey, \XF::options()->boardUrl, \XF::options()->boardUrl.'/connected_account.php', '', true);
+
+        $this->auth = new SteamAuth(
+        	\XF::options()->nfSteamApiKey,
+	        \XF::options()->boardUrl,
+	        \XF::options()->boardUrl.'/connected_account.php',
+	        '',
+	        true
+        );
     }
 
     public function getTitle()
@@ -77,4 +80,11 @@ class Steam extends AbstractProvider
         return new Uri('https://steamcommunity.com/openid/login');
     }
 
+    public function requestProviderToken(StorageState $storageState, Request $request, &$error = null, $skipStoredToken = false)
+    {
+	    $id = substr($request->get('openid_claimed_id'), strrpos($request->get('openid_claimed_id'), '/') + 1);
+
+	    $storageState->storeToken($id);
+	    return $id;
+    }
 }
