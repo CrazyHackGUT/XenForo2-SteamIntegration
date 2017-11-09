@@ -7,6 +7,11 @@
     "admin/connected_account_provider_test_steam.html": {
         "version_id": 2000070,
         "version_string": "2.0.0",
-        "hash": "4579efea7d17b0db71b17422466a8416"
+        "hash": "7a3a59e62cb4e75cc388907836e9d0c3"
+    },
+    "public/connected_account_associated_steam.html": {
+        "version_id": 2000070,
+        "version_string": "2.0.0",
+        "hash": "58d87cfe8250afa5a6885f55a971ffe8"
     }
 }
