@@ -1,11 +1,16 @@
 <xf:if is="!$providerData">
-	<xf:inforow>
-		{{ phrase('this_will_test_x_connected_account_provider_explain', {'title': $provider.title}) }}
-	</xf:inforow>
-
-	<xf:formrow label="{{ phrase('option.nfSteamApiKey') }}">{$provider.options.steam_api_key}</xf:formrow>
+	<xf:macro template="connected_account_provider_test_macros" name="explain"
+			  arg-providerTitle="{$provider.title}"
+			  arg-keyName="{{ phrase('option.nfSteamApiKey') }}"
+			  arg-keyValue="{$provider.options.steam_api_key}" />
 <xf:else />
-	<xf:inforow rowtype="confirm"><strong>{{ phrase('test_passed') }}</strong></xf:inforow>
+	<xf:macro template="connected_account_provider_test_macros" name="success" />
 
-	<xf:formrow label="{{ phrase('name') }}">{{ $providerData.personaname ?: phrase('n_a') }}</xf:formrow>
+	<xf:macro template="connected_account_provider_test_macros" name="display_name"
+			  arg-name="{$providerData.personaname}"
+			  arg-secondaryName="{{ parens($providerData.realname) }}" />
+
+	<xf:macro template="connected_account_provider_test_macros" name="picture"
+			  arg-url="{$providerData.avatarmedium}" />
+
 </xf:if>
