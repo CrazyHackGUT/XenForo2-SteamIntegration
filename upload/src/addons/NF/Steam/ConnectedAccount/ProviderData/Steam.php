@@ -16,7 +16,7 @@ class Steam extends AbstractProviderData
 
     public function getDefaultEndpoint()
     {
-        return Api::BASE_URL.'ISteamUser/GetPlayerSummaries/v0002/?key='. \XF::options()->nfSteamApiKey.'&steamids='.$this->providerId;
+        return '';
     }
 
     public function getProviderKey()
