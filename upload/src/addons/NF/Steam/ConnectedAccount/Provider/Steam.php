@@ -3,6 +3,7 @@
 namespace NF\Steam\ConnectedAccount\Provider;
 
 use NF\Steam\SteamAuth;
+use NF\Steam\SteamToken;
 use OAuth\Common\Http\Uri\Uri;
 use XF\ConnectedAccount\Provider\AbstractProvider;
 use XF\ConnectedAccount\Storage\StorageState;
@@ -19,11 +20,11 @@ class Steam extends AbstractProvider
         parent::__construct($providerId);
 
         $this->auth = new SteamAuth(
-        	\XF::options()->nfSteamApiKey,
-	        \XF::options()->boardUrl,
-	        \XF::options()->boardUrl.'/connected_account.php',
-	        '',
-	        true
+            \XF::options()->nfSteamApiKey,
+            \XF::options()->boardUrl,
+            \XF::options()->boardUrl . '/connected_account.php',
+            '',
+            true
         );
     }
 
@@ -35,6 +36,11 @@ class Steam extends AbstractProvider
     public function getDescription()
     {
         return \XF::phrase('nf_steam_description');
+    }
+
+    public function getProviderDataClass()
+    {
+        return 'NF\\Steam:ProviderData\\Steam';
     }
 
     public function getOAuthServiceName()
@@ -80,11 +86,15 @@ class Steam extends AbstractProvider
         return new Uri('https://steamcommunity.com/openid/login');
     }
 
+    public function getAuth()
+    {
+        return $this->auth;
+    }
+
     public function requestProviderToken(StorageState $storageState, Request $request, &$error = null, $skipStoredToken = false)
     {
-	    $id = substr($request->get('openid_claimed_id'), strrpos($request->get('openid_claimed_id'), '/') + 1);
-
-	    $storageState->storeToken($id);
-	    return $id;
+        $id = substr($request->get('openid_claimed_id'), strrpos($request->get('openid_claimed_id'), '/') + 1);
+        $storageState->storeToken($token = new SteamToken($id));
+        return $token;
     }
 }
