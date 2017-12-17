@@ -15,12 +15,19 @@ class Setup extends AbstractSetup
 
     public function install(array $stepParams = [])
     {
-//        $this->query("
-//            INSERT INTO `xf_connected_account_provider`
-//				(`provider_id`, `provider_class`, `display_order`, `options`)
-//            VALUES
-//            ('steam', 'NF\\\\Steam:Provider\\\\Steam', 80, '');
-//        ");
+        $this->query("
+            INSERT INTO `xf_connected_account_provider`
+				(`provider_id`, `provider_class`, `display_order`, `options`)
+            VALUES
+            	('steam', 'NF\\\\Steam:Provider\\\\Steam', 80, '');
+        ");
     }
 
+    public function uninstall(array $stepParams = [])
+    {
+        $this->query("
+            DELETE FROM `xf_connected_account_provider`
+            WHERE `provider_id` = 'steam'
+        ");
+    }
 }
