@@ -4,6 +4,7 @@ namespace NF\Steam;
 
 use XF\App;
 use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Psr7\Request;
 
 class Api
 {
@@ -43,11 +44,7 @@ class Api
 	protected function getHttpRequest($url, $method = 'GET')
 	{
 		$client = $this->getHttpClient();
-		$request = $client->createRequest($method, self::BASE_URL . $url, [
-			'headers' => [
-				'Content-Type' => 'application/json',
-			],
-		]);
+		$request = new Request($method, self::BASE_URL . $url, ['Content-Type' => 'application/json',]);
 
 		return $request;
 	}

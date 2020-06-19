@@ -2,13 +2,18 @@
     "legacy_addon_id": "",
     "title": "Steam Integration",
     "description": "",
-    "version_id": 2000070,
-    "version_string": "2.0.0",
-    "dev": "",
+    "version_id": 2000110,
+    "version_string": "2.0.1 Alpha",
+    "dev": "Fork and fixes by CrazyHackGUT aka Kruzya | Original Development by NixFifty",
     "dev_url": "",
     "faq_url": "",
     "support_url": "",
     "extra_urls": [],
-    "require": [],
-    "icon": "fa-steam"
+    "require": {
+        "XF": [
+            2010010,
+            "XenForo v2.1.0+"
+        ]
+    },
+    "icon": "fa-steam fab"
 }
